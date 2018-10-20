@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Tabel Data Pekerjaan</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Posisi</th>
+        <th scope="col">Perusahaan</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          {% for pekerjaan in list_pekerjaan %}
+        <th scope="row">{{forloop.counter}}
+        </th>
+        <td>{{pekerjaan.posisi}}</td>
+        <td>{{pekerjaan.perusahaan}}</td>
+        <td><a href="#">Ubah</a> |
+            <a onclick="return confirm('Yakin nih mau hapus saya?!!')" href="{% url 'peserta:hapus_pekerjaan' pekerjaan.id %}">Hapus</a><td>
+      </tr>
+      {% endfor %}
+      
+      
+    </tbody>
+  </table>
+{% endblock content %}
+

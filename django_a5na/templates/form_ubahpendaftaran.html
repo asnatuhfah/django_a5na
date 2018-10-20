@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<h5 class="card-title">Form Pendaftaran</h5>
+
+<form action="{% url 'peserta:update' %}" method="post">
+    {% csrf_token %}
+    {{form.id}}
+    <div class="form-group">
+        <label for="" class="control-label">Nama</label>
+        {{form.nama | add_class:"form-control" | attr:"placeholder:Masukan Nama . . ." }}
+    </div>  
+
+    <div class="form-group">
+        <label for="" class="control-label">Gender</label>
+        {{form.gender | add_class:"form-control"}}
+    </div>
+
+    <div class="form-group">
+        <label for="" class="control-label">No. HP</label>
+        {{form.no_hp | add_class:"form-control" | attr:"placeholder:Masukan No HP . . ." }}
+    </div>
+
+    <div class="form-group">
+        <label for="" class="control-label">Usia</label>
+        {{form.usia | add_class:"form-control" | attr:"placeholder:Masukan Usia . . ." }}
+    </div>
+    <div class="form-group">
+        <label for="" class="control-label">Alamat</label>
+      {{form.alamat | add_class:"form-control" | attr:"placeholder:Masukan Alamat . . ." }}
+    </div>
+    <div class="form-group">
+        <label for="" class="control-label">Pekerjaan</label>
+        {{form.pekerjaan | add_class:"form-control" }}
+    </div>
+    <div class="form-group">
+        <label for="" class="control-label">Hobi</label>
+        {{form.hobi | add_class:"form-control" | attr:"placeholder:Masukan Hobi . . ." }}
+    </div>
+
+    <div class="form-group">
+        <button style="float: right; background-color: #FF5722;" type="submit" class="btn">Ubah</button>
+    </div>
+</form>
+{% endblock content %}

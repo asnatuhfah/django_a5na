@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Tabel Data Peserta</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">NO HP</th>
+        <th scope="col">Usia</th>
+        <th scope="col">Pekerjaan</th>
+        <th scope="col">Hobi</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          {% for peserta in list_peserta %}
+        <th scope="row">{{forloop.counter}}
+        </th>
+        <td>{{peserta.nama}}</td>
+        <td>{{peserta.gender}}</td>
+        <td>{{peserta.alamat}}</td>
+        <td>{{peserta.no_hp}}</td>
+        <td>{{peserta.usia}}</td>
+        <td>{{peserta.pekerjaan.posisi}}</td>
+        <td>{{peserta.hobi}}</td>
+        <td><a href="{% url 'peserta:ubah' peserta.id %}">Ubah</a> |
+            <a onclick="return confirm('Yakin nih mau hapus saya?!!')" href="{% url 'peserta:hapus' peserta.id %}">Hapus</a><td>
+      </tr>
+      {% endfor %}
+      
+      
+    </tbody>
+  </table>
+{% endblock content %}
+

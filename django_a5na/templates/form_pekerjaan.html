@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load widget_tweaks %}
+{% block content %}
+<h5 class="card-title">Form Tambah Data Pekerjaan</h5>
+
+<form action="{% url 'peserta:pekerjaan' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="" class="control-label">Posisi</label>
+        {{form.posisi | add_class:"form-control" | attr:"placeholder:Masukan Posisi . . ." }}
+    </div>
+
+    <div class="form-group">
+        <label for="" class="control-label">Perusahaan</label>
+        {{form.perusahaan | add_class:"form-control" | attr:"placeholder:Masukan Nama Perusahaan . . ." }}
+    </div>
+
+    <div class="form-group">
+        <button style="float: right; background-color: #FF5722;" type="submit" class="btn">Simpan</button>
+    </div>
+</form>
+{% endblock content %}
